@@ -16,8 +16,8 @@
 ### Desarrollo del proyecto
 
 
-El proyecto consta de 3 partes evolutivas donde se enmpieza mostrando un contador y finaliza con la integracion de un sensor de temperatura, un motor de aficionado, una foto resistencia, leds, un interruptor y se agrego la capacidad de contar y mostrar tambien los numeros primos que se encuentran entre 0 y 97.
-El proceso de integracion sera explicado en las siguientes lineas 
+El proyecto consta de 3 partes evolutivas donde se empieza mostrando un contador y finaliza con la integracion de un sensor de temperatura, un motor de aficionado, una foto resistencia, leds, un interruptor y se agrego la capacidad de contar y mostrar tambien los numeros primos que se encuentran entre 0 y 97.
+El proceso de integracion sera explicado en las siguientes lineas:
 
 * ### Parte 1
 
@@ -74,7 +74,7 @@ Si todos los pines que entregan corrientes estan configurados como HIGH y los pi
 
 
 
-Por ultimo tambien contamos con 3 pulsadores, uno para reinicar el contador, otro para avanzar al siguiente numero y el ultime para retroceder un numero. En este caso la corriente solamente fluye cuando el pulsador es presionado.
+Por ultimo tambien contamos con 3 pulsadores, uno para reinicar el contador, otro para avanzar al siguiente numero y el ultimo para retroceder un numero. En este caso la corriente solamente fluye cuando el pulsador es presionado.
 Cada pulsador esta conectado a un pin que es capaz de entregar y recibir energia con la configuracion INPUT_PULLUP
 
 ~~~ C++
