@@ -1,15 +1,15 @@
 ![tinkercard](./img/tinkercard.jpg)
 ## DOCUMENTACION DEL TRABAJO PRACTICO DE SPD
 
-- **Alumno**: Matias Emanuel Briceño Castillo
+- **Alumno**: Cabral, Ezequiel Matías
 
- - **Legajo**: 115466
+ - **Legajo**: 115472
 
 ### INTEGRANTES
 
 - Almonacid, Emir Leandro
 
-- Cabral, Ezequiel Matias
+- Matias Emanuel Briceño Castillo
 
 
 
@@ -169,7 +169,7 @@ int keypressed()
   return 0; 
 ~~~
 
-Haga click **[aqui](https://www.tinkercad.com/things/kh0pY6c2NwD?sharecode=sBIrmK2LLrWdw0dRooUUQgn2emfkoky24-wjMsacfnU)** para ir al proyecto en tinkercard.
+Haga click **[aqui](https://www.tinkercad.com/things/24PCTQqvUFM?sharecode=dV_4663BDjAzvM2-XNS0Q1KkI9r6CCDHv0rJpUMORVc)** para ir al proyecto en tinkercard.
 
 * ### Parte 2
 
@@ -292,7 +292,7 @@ void funcionamiento_motor()
 }
 ~~~
 
-Haga click **[aqui](https://www.tinkercad.com/things/31KI09zSPrN?sharecode=0CqhzZabMJIddpQpxz_2FohvJwd6cRKWvffRfGQ-MSk)** para ir al proyecto en tinkercard.
+Haga click **[aqui](https://www.tinkercad.com/things/4Pg0tvHWwAD?sharecode=odrO6MX1N2VccdHpx99Y2FlEN6oCAlt1-34DXYE-OcQ)** para ir al proyecto en tinkercard.
 
 * ### Proyecto final
 
@@ -371,7 +371,7 @@ bool funcionamiento_fotores()
 Tambien debo aclarar que se cambio el nombre de la funcion keypressed() por el de tecla_presionada() para su mejor comprension, se unfico en una unica funcion contador_programa() encargada de llevar la cuenta tanto del contador de numeros primos como los normales y en la funcion la loop se decidio cambiar la logica para el ahorro de lineas que se repetian.  
 
 
-Haga click **[aqui](https://www.tinkercad.com/things/c9PxfkO13tD?sharecode=MAmtfxyHkznwrJjqD0NrvPjy2UsJtbWwEHGUc8iukrk)** para ir al proyecto en tinkercard.
+Haga click **[aqui](https://www.tinkercad.com/things/k9iEMavwL0a?sharecode=dhGG5aaC9J5spm0gLWb6qxxxn-54UFp12pW0HhUympk)** para ir al proyecto en tinkercard.
 
 
 ![Placa_arduino](./img/placa_arduino.png) 
