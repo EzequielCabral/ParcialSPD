@@ -292,6 +292,7 @@ void funcionamiento_motor()
 }
 ~~~
 
+Haga click **[aqui](https://www.tinkercad.com/things/31KI09zSPrN?sharecode=0CqhzZabMJIddpQpxz_2FohvJwd6cRKWvffRfGQ-MSk)** para ir al proyecto en tinkercard.
 
 * ### Proyecto final
 
@@ -369,6 +370,8 @@ bool funcionamiento_fotores()
 
 Tambien debo aclarar que se cambio el nombre de la funcion keypressed() por el de tecla_presionada() para su mejor comprension, se unfico en una unica funcion contador_programa() encargada de llevar la cuenta tanto del contador de numeros primos como los normales y en la funcion la loop se decidio cambiar la logica para el ahorro de lineas que se repetian.  
 
+
+Haga click **[aqui](https://www.tinkercad.com/things/c9PxfkO13tD?sharecode=MAmtfxyHkznwrJjqD0NrvPjy2UsJtbWwEHGUc8iukrk)** para ir al proyecto en tinkercard.
 
 
 ![Placa_arduino](./img/placa_arduino.png) 
