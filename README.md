@@ -172,6 +172,22 @@ int keypressed()
 
 Haga click **[aqui](https://www.tinkercad.com/things/kh0pY6c2NwD?sharecode=sBIrmK2LLrWdw0dRooUUQgn2emfkoky24-wjMsacfnU)** para ir al proyecto en tinkercard.
 
+* ### Parte 2
+
+![proyecto_inicial](./img/tp_2.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 * ### Proyecto final
