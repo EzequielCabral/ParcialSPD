@@ -12,7 +12,6 @@
 - Cabral, Ezequiel Matias
 
 
-![Placa_arduino](./img/placa_arduino.png) 
 
 ### Desarrollo del proyecto
 
@@ -294,18 +293,84 @@ void funcionamiento_motor()
 ~~~
 
 
-
-
-
-
-
-
-
 * ### Proyecto final
 
+  
 ![proyecto_inicial](./img/tp_3.png)
 
+En esta ultima parte agregamos una fotoresistencia y 2 leds, uno rojo y el ultimo verde. Una fotoresistencia es un componente electrónico que cambia su resistencia eléctrica en función de la cantidad de luz que incide sobre ella. Cuanto más intensa es la luz que recibe, menor es su resistencia, y viceversa.
+Esta variacion tambien la vamos a medir con el pin analogico A3 y la logica que utilizamos para que afecte el funcionoamiento de los componentes previos que ya tenemos sera la siguiente.
+En el caso de que no haya la suficiente luz ambiental no funcionaran los displays y tampoco el motor de aficionado ademas se encendera el led Rojo como alerta de lo sucedido. En el caso contrario ademas de funcionar el resto de los componentes el led verde se encendera. 
+En el siguiente bloque de codigo se vera la logica empleada tanto en la funcion loop() como en la funcion funcionamiento_fotores()  
+~~~ C++
 
+void loop()
+{
+  hay_energia = funcionamiento_fotores();
+  if(hay_energia) // si hay la suficiente luz ambiental funcionaran el resto de los componentes
+  {
+    modo = digitalRead(CONTADORNORMAL); 
   
+    if(modo != modo_anterior)
+    {
+      contador = 0;
+      indice = 0;
+      contador_primo = numeros_primos[indice];    
+    }
+    else
+    {
+      contador_programa();   
+    }
+    
+    if(modo == 0)
+    {
+      mostrar_numero(contador_primo);
+    }
+    else
+    {
+      mostrar_numero(contador);
+    }
+
+    modo_anterior = modo;
+    funcionamiento_motor();    
+    
+  }
+  else // sin la luz necesaria no funcionara ni los displays ni el motor
+  {
+    digitalWrite(MOTOR,LOW);
+    apagar_todos();
+  }  
+  
+}
+
+
+
+bool funcionamiento_fotores()
+{
+  valor = analogRead(FOTOR);
+  hay_energia = true;
+  if(valor >= 204)
+  {
+    digitalWrite(VERDE,HIGH);
+    digitalWrite(ROJO,LOW);
+  }
+  else
+  {
+    apagar_todos();
+    digitalWrite(VERDE,LOW);
+    digitalWrite(ROJO,HIGH);
+    hay_energia = false;
+  }
+  
+  return hay_energia;
+}
+
+~~~
+
+Tambien debo aclarar que se cambio el nombre de la funcion keypressed() por el de tecla_presionada() para su mejor comprension, se unfico en una unica funcion contador_programa() encargada de llevar la cuenta tanto del contador de numeros primos como los normales y en la funcion la loop se decidio cambiar la logica para el ahorro de lineas que se repetian.  
+
+
+
+![Placa_arduino](./img/placa_arduino.png) 
 
 
