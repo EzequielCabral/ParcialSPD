@@ -1,5 +1,4 @@
 ![tinkercard](./img/tinkercard.jpg)
-
 ## DOCUMENTACION DEL TRABAJO PRACTICO DE SPD
 
 - **Alumno**: Matias Emanuel Briceño Castillo
@@ -44,10 +43,29 @@ Como el pin A4 O A5 tambien estan configurado para entregar corriente solamente 
   digitalWrite(A4,0);
   //ASI TAMBIEN FUNCIONA
   digitalWrite(A4,LOW);
-~~~arg
+~~~
 
 Adjuntamos ejemplo y su explicacion
-Si todos los pines que entregan corrientes estan configurados como HIGH y los pines A4 Y A5 estan configurados como low, se vera lo siguiente
+Si todos los pines que entregan corrientes estan configurados como HIGH y los pines A4 Y A5 estan configurados como low, el codigo y lo que se vera en los display sera lo siguiente
+
+~~~ C++
+
+  // permitimos la entrega de corriente de todos los pines
+  digitalWrite(A,HIGH);
+  digitalWrite(B,HIGH);
+  digitalWrite(C,HIGH);
+  digitalWrite(D,HIGH);
+  digitalWrite(E,HIGH);
+  digitalWrite(F,HIGH);
+  digitalWrite(G,HIGH);
+
+  //impedimos la entrega de corriente de los pines A4 y A5
+
+  digitalWrite(DISPLAYUNI,LOW);
+  digitalWrite(DISPLAYDEC,LOW);
+
+~~~
+![displays encendidos](./img/displays_encendidos.png) 
 
 
 
