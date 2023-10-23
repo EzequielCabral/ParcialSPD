@@ -176,11 +176,122 @@ Haga click **[aqui](https://www.tinkercad.com/things/kh0pY6c2NwD?sharecode=sBIrm
 
 ![proyecto_inicial](./img/tp_2.png)
 
+En la seguda parte del proyecto eliminamos el boton de reset(encargado de reiniciar el contador), agregamos nuevos componentes y nuevos funcionalidades detalladas en las siguientes lineas:
+
+#### Componentes
+* Interruptor deslizante
+* Sensor de temperatura
+* Motor de aficionado
+
+#### Funcionalidades
+
+* El interruptor deslizante nos permite mostrar los numeros primos comprendidos entre 0 y 99 si esta deslizado a la izquierda o mostrar los numeros entre 0 y 99 si esta a la derecha. El interruptor esta conectado al pin de 5V, al pin GND y al pin 5 en modo INPUT. Si muestra los numeros primos la corriente fluye del pin de 5V al pin 5 por lo tanto la lectura que obtendremos del estado del pin 5 sera igual a 1.
+
+~~~ C++
+
+  int estado_del_pin = digitalRead(CONTADOR_PRIMOS);
+  Serial.println(estado_del_pin) // -> imprimira por consola "1"
+~~~
+
+Con esta logica decidimos mostrar en la funcion loop que numero mostrar. Ademas por parecernos mas practico decidimos guardarnos en una lista los numeros primos existentes entre 0 y 99 para y mostrar el numero al que apunte nuestra variable indice. La variable indice va a ser la que avance o retroceda segun el pulsador que apretemos.
+
+~~~ C++
+
+int numeros_primos[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
+
+void contador_primos()
+{
+  int pressed = keypressed();
+  if(pressed == AUMENTAR)
+  {
+    indice++;
+    indice = indice % 25;
+    contador = numeros_primos[indice];        
+  }
+  if(pressed == DISMINUIR )
+  {
+    indice--;
+    indice = indice < 0 ? 24 : indice % 25;
+    contador = numeros_primos[indice];
+  }  
+}
+
+~~~
+
+Asi se vera la funcion loop con la nueva logica donde se define que contador se esta utilizando
 
 
+~~~ C++
 
+void loop()
+{
+  
+  
+  modo = digitalRead(CONTADOR_PRIMOS);
+  
+  
+  if(modo == 0)
+  {
+    if(modo != modo_anterior)
+    {
+      contador = 0;
+    }
+    else
+    {
+      contador_normal();      
+    }   
+    
+  }
+  else
+  {
+    if(modo != modo_anterior)
+    {
+      indice = 0;
+      contador = numeros_primos[indice];
+    }
+    else
+    {      
+      contador_primos();
+    }
 
+  }
+    
+  modo_anterior = modo;
+  mostrar_numero(contador);
+  funcionamiento_motor();
+}
 
+~~~
+
+- El motor de aficionado funciona si la temperatura esta entre 0 y 30 grados celsius. Esta conectado al pin A3, definido como pin OUTPUT, el cual le modificamos el estado a HIGH cuando la temperatura se encuentra entre rango antes mencionado o si esta afuera del mismo su estado sera LOW cortando la circulacion de la corriente.
+- El sensor de temperatura tiene 3 pines
+  - Uno conectado a GND
+  - Otro conectado a 5V
+  - El ultimo conectado al pin analogico A0
+
+El cambio de temperatura en el ambiente provoca la variacion de voltaje entregada por el sensor. Este cambio podemos leerlo a traves del pin analogico con la funcion "analogRead(A3)" que nos devolvera la tension entregada por el sensor en ese momento.
+Como nosotros lo que deseamos saber es la temperatura actual para saber si encender o apagar el motor debemos utilizar la funcion map() para que nos traduzca el voltaje en grados celsius.
+la variacion de tension como minimo que entrega el sensor es de 20 y como maximo es 358, siendo 20 = -40 grados celsius y 358 = 125 grados celsius. Estos son los datos que debemos brindarle a la funcion map para que nos calcule la proporcion en los valores intermedios.
+Con esta logica definimos la siguiente funcion que tambien sera ejectuada en la funcion loop().
+
+~~~ C++
+
+void funcionamiento_motor()
+{
+  int temperaturaLeida = analogRead(SENTEMP);
+  temperaturaReal = map(temperaturaLeida,20,358,-40,125);
+  if(temperaturaReal > 0 && temperaturaReal < 31)
+  {
+    digitalWrite(MOTOR,HIGH); 
+  }
+  else
+  {
+    digitalWrite(MOTOR,LOW); 
+  }
+ 
+  
+}
+~~~
 
 
 
