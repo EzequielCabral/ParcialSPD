@@ -5,7 +5,7 @@
 #define E 9
 #define F 11
 #define G 10
-#define CONTADORNORMAL 5
+#define CONTADOR_PRIMOS 5
 #define AUMENTAR 4 
 #define DISMINUIR 3
 #define DISPLAYUNI A4
@@ -50,7 +50,7 @@ void setup()
   pinMode(11,OUTPUT);
   pinMode(10,OUTPUT);
   pinMode(MOTOR,OUTPUT);
-  pinMode(CONTADORNORMAL,INPUT_PULLUP);
+  pinMode(CONTADOR_PRIMOS,INPUT);
   pinMode(AUMENTAR,INPUT_PULLUP);
   pinMode(DISMINUIR,INPUT_PULLUP);
   pinMode(DISPLAYUNI,OUTPUT);
@@ -65,7 +65,7 @@ void loop()
 {
   
   
-  modo = digitalRead(CONTADORNORMAL);
+  modo = digitalRead(CONTADOR_PRIMOS);
   
   
   if(modo == 0)
